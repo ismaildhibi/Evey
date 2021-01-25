@@ -1,0 +1,134 @@
+/*
+    ===============================
+            Public Styles
+    ===============================
+*/
+
+* , *:after , *:before {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: lucida sans ;
+    --theme-color: #00c98f;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+.margin-bottom {
+    margin-bottom: 20px
+}
+
+/*
+    ===============================
+            Navbar Styles
+    ===============================
+*/
+
+.navbar {
+    padding: 0px 0;
+    overflow: hidden;
+    /*position: absolute;  Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    
+    width: 100%; /* Full width *//*    border-bottom: 1px solid #000 */
+}
+
+.navbar .logo {
+    width: 50%;
+    float: left;
+}
+.navbar label {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-size: cover;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.navbar input:checked ~ .ul-list {
+    display: block;
+}
+
+.navbar input:checked ~ label {
+    background-size: cover;
+}
+
+.navbar .ul-list {
+    width: 50%;
+    float: left;
+    list-style: none;
+}
+
+.navbar .ul-list .list-item {
+    display: inline-block;
+}
+
+.navbar .ul-list .list-item a {
+    display: block;
+    color:black;
+    text-decoration: none;
+    padding: 10px 25px;
+    font-weight: bold;
+}
+
+.navbar .ul-list .list-item a:hover {
+    color: #6EC1E4
+}
+
+/* Media for Navbar Style */ 
+
+@media (min-width : 992px) {
+    .navbar label {
+        display: none
+    }
+}
+
+@media (max-width : 991px) {
+    .navbar .logo {
+        width: 100%;
+        float: none;
+    }
+    
+    .navbar .ul-list {
+        width: 100%;
+        float:  none;
+        margin-top: 20px;
+        display: none
+    }
+    
+    .navbar .ul-list .list-item {
+        display: block;
+        text-align: center;
+    }
+}
+
+/*
+    ===============================
+            Home Styles
+    ===============================
+*/
+.header__bg__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.header__heading{
+    position: absolute;
+  bottom: 0;
+  color: #f1f1f1;
+  width: 80%;
+  padding: 20px;
+
+}
+
+
+.MuiSvgIcon-root {
+margin-bottom: -35px;
+}
