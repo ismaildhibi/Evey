@@ -8,46 +8,12 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import Alert from '@material-ui/lab/Alert';
 import { appConfig } from '../services/config';
-import { Formik ,Field, ErrorMessage,Form} from 'formik';
-import * as Yup from 'yup';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://test.com">
-          tech lead
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+import Copyright from '../Copyright'
+import useStyles from '../Loginpage/Css_Signin'
 
 const SignIn = (props) => {
 
@@ -74,26 +40,10 @@ const [error,setError] =useState(false);
     });
   }
 
-  const SignupSchema = Yup.object().shape({
-    
-      loginValue: Yup.string()
-      .email('invlid email')
-      .required(),
-     passwordValue: Yup.string()
-      .min(5,'too short')
-      .max(50,'too log')
-      .required('required'),
-  });
   var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 
   return (
-    <Formik
-    validationSchema={SignupSchema} onSubmit={values => {
-      // same shape as initial values
-      console.log(values);
-    }}>
-     
-   {  <Container component="main" maxWidth="xs">
+     <Container component="main" maxWidth="xs">
        
       <CssBaseline />
       <div className={classes.paper}>
@@ -142,7 +92,7 @@ const [error,setError] =useState(false);
             type="password"
             autoComplete="current-password"
           />
-          {!pattern.test(loginValue) && loginValue !=0?  <Alert severity="warning">Enter your email'email@exmplecom"</Alert>:''}
+          {!pattern.test(loginValue) && loginValue !==0?  <Alert severity="warning">Enter your email 'email@example.com"</Alert>:''}
           { error?  <Alert severity="error">Please verify mail or password!</Alert>:''}
 
 
@@ -180,8 +130,8 @@ const [error,setError] =useState(false);
       <Box mt={8}>
         <Copyright />
       </Box>
-    </Container> }
-    </Formik>
+    </Container> 
+ 
   );
         }
 

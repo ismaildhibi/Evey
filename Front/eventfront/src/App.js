@@ -2,7 +2,7 @@ import React ,{} from 'react';
 import './App.css';
 import SignIn from './Loginpage/SignIn';
 import SignUp from './Loginpage/SignUp';
-import event from './Evenements/evnetss';
+import event from './Evenements/Home';
 import NavBar from './NavBar/NavBar';
 
 import { BrowserRouter,Route,Switch } from 'react-router-dom';

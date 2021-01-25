@@ -11,7 +11,7 @@
 
 body {
     font-family: lucida sans ;
-    --theme-color: #00c98f;
+    
 }
 
 .container {
@@ -34,7 +34,7 @@ body {
     overflow: hidden;
     /*position: absolute;  Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    
+    background-color: #579a87;
     width: 100%; /* Full width *//*    border-bottom: 1px solid #000 */
 }
 
@@ -71,7 +71,7 @@ body {
 
 .navbar .ul-list .list-item a {
     display: block;
-    color:black;
+    color:whitesmoke;
     text-decoration: none;
     padding: 10px 25px;
     font-weight: bold;

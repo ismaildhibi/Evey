@@ -1,7 +1,6 @@
-import React,{useeffects,useState} from 'react'
+import React,{useState} from 'react'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import useStyles from '../Evenements/CSSDescription'
 import '../App.css';
@@ -18,10 +17,7 @@ const DescriptionEvent = (props,match) =>{
     console.log("props.location.data" , props.location.data)
    
     let { id } = useParams();
-   // const id=props.match.params.id
-
-
-  console.log('id',id)
+      console.log('id',id)
     axios
     .get(`${appConfig.apiURL}/events/`+ id )
     .then(res => {
@@ -34,20 +30,15 @@ const DescriptionEvent = (props,match) =>{
 
     if (props.location.data) {
         return (
-          <div className={classes.root}>
-            
-        <Grid container justify="center" >
-          
-            
-              <CardMedia
+         <div className={classes.root}>
+              <Grid container justify="center" >  
+                  <CardMedia
                       style={{height:50,width:800, paddingTop: '56.25%',borderRadius:'70px'}}
                       image={appConfig.apiURL + evnt.Image?.url}
                      title= {evnt.Nom} 
                   />
-                             
-        
-      </Grid>
-          <Paper className={classes.paper}>
+            </Grid>
+           <Paper className={classes.paper}>
             <Grid container wrap="nowrap" spacing={2}>
               <Grid item xs zeroMinWidth>
                 <Typography noWrap>{evnt.Nom}</Typography>
@@ -58,6 +49,7 @@ const DescriptionEvent = (props,match) =>{
             <Grid container wrap="nowrap" spacing={2}>
               <Grid item xs>
                 <Typography noWrap><strong>Date: </strong>{evnt.Date}</Typography>
+                <Typography noWrap><strong>Lieu: </strong>{evnt.Lieu}</Typography>
               </Grid>
             </Grid>
           </Paper>
@@ -71,13 +63,6 @@ const DescriptionEvent = (props,match) =>{
             </Grid>
           </Paper>
         </div>
-
-          /*   <div>
-             <p> Evenement :{Evenement.Nom}</p>
-             <p> Date :{Evenement.Date}</p>
-             <p> Description :{Evenement.Description}</p>
-             <p> Lieu :{Evenement.Lieu}</p>
-            </div> */
         )
       } else {
         return <span>Hi sir , you must go back and chose one of our events .. </span>;
@@ -86,4 +71,4 @@ const DescriptionEvent = (props,match) =>{
     
 }
 
-export default DescriptionEvent
+export default DescriptionEvent;

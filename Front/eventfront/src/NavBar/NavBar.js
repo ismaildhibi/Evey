@@ -6,12 +6,8 @@ import HomeIcon from '@material-ui/icons/Home';
 
 const NavBar = (props) =>{
     const [loggedOut, setLoggedOut] = useState(false)
-
-
     const signOut=(e) =>{
        // props.history.push('/home')
-
-
         localStorage.clear();
         setLoggedOut(true)
       }
@@ -19,7 +15,7 @@ const NavBar = (props) =>{
       if (loggedOut) {
         return <Redirect to="/SignIn" push={true} />
       }else <Button onClick={signOut}>LogOut</Button>;
-
+      
     return(
         <div className="navbar">
             <div className="container">
@@ -29,18 +25,14 @@ const NavBar = (props) =>{
                     </a>
                 </div>
                 <ul className="ul-list"> 
-                    <li className="list-item"><HomeIcon /><Link to ="/event" > Home </Link></li>
-                    <li className="list-item"><Link to ="/SignIn" > SignIn </Link></li>
-                    <li className="list-item"><Link to ="/SignUp" > SignUp </Link></li>
+                    <li className="list-item"><HomeIcon /><Link to ="/home" > Home </Link></li>
+                    <li className="list-item"><Link to ="/SignIn" > Sign In </Link></li>
+                    <li className="list-item"><Link to ="/SignUp" > Sign Up </Link></li>
                     {/* {SignIn ? (<button className="btn btn-">Log out</button>) : (<p>You have to log in</p>)} */}
-                    <Button color="light" onClick={() => signOut()}>
+                    <Button variant="outlined" color="primary" size="small" onClick={() => signOut()}>
                     {loggedOut ? '' : 'Log out'}
-                </Button>
-
-                   
-                   
+                 </Button>                
                 </ul>
-
             </div>
         </div>
     )
